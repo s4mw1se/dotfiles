@@ -6,8 +6,10 @@ WINIT_X11_SCALE_FACTOR = "1"
 dynamic_padding = true
 decorations = "full"
 title = "Alacritty@CachyOS"
-opacity = 1
+opacity = 0.95 # Slight transparency for aesthetics
 decorations_theme_variant = "Dark"
+startup_mode = "Maximized" # Open maximized by default
+
 
 [window.dimensions]
 columns = 100
@@ -25,57 +27,65 @@ multiplier = 3
 draw_bold_text_with_bright_colors = true
 
 [colors.primary]
-background = "0x1A1A2E"
-foreground = "0xE94560"
+background = "#282A36"  # Dracula background
+foreground = "#F8F8F2"  # Dracula foreground
 
 [colors.normal]
-black = "0x0F0F1A"
-red = "0xFF2E63"
-green = "0x2DE2E6"
-yellow = "0xF9F871"
-blue = "0x1C1C3C"
-magenta = "0xC77DFF"
-cyan = "0x00FFFF"
-white = "0xF5F5F5"
+black = "#21222C"       # Dracula black
+red = "#FF5555"         # Dracula red
+green = "#50FA7B"       # Dracula green
+yellow = "#F1FA8C"      # Dracula yellow
+blue = "#BD93F9"        # Dracula blue
+magenta = "#FF79C6"     # Dracula magenta
+cyan = "#8BE9FD"        # Dracula cyan
+white = "#F8F8F2"       # Dracula white
 
 [colors.bright]
-black = "0x2D2D44"
-red = "0xFF5370"
-green = "0x3BF4FB"
-yellow = "0xFFFACD"
-blue = "0x2E2E5E"
-magenta = "0xD4A1FF"
-cyan = "0x5DF2F2"
-white = "0xFFFFFF"
+black = "#6272A4"       # Bright black (gray)
+red = "#FF6E6E"         # Bright red
+green = "#69FF94"       # Bright green
+yellow = "#FFFFA5"      # Bright yellow
+blue = "#D6ACFF"        # Bright blue
+magenta = "#FF92DF"     # Bright magenta
+cyan = "#A4FFFF"        # Bright cyan
+white = "#FFFFFF"       # Bright white
+
+[colors.selection]
+background = "#383A46"  # Semi-transparent selection
+text = "#FFFFFF"  # Selection text color
 
 [font]
 size = 14
 
 [font.normal]
-family = "Fira Code"
+family = "MesloLGS NF"
 style = "Regular"
 
 [font.bold]
-family = "Fira Code"
+family = "MesloLGS NF"
 style = "Bold"
 
 [font.italic]
-family = "Fira Code"
+family = "MesloLGS NF"
 style = "Italic"
 
 [font.bold_italic]
-family = "Fira Code"
+family = "MesloLGS NF"
 style = "Bold Italic"
+
+[font.offset]
+x = 0
+y = 0
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 save_to_clipboard = true
 
 [cursor]
-style = "Underline"
-vi_mode_style = "None"
+style = "Block"           # Classic block cursor for better visibility
+vi_mode_style = "Beam"    # Beam cursor in vi mode
 unfocused_hollow = true
-thickness = 0.15
+thickness = 0.2           # Slightly thicker for better visibility
 
 [mouse]
 hide_when_typing = true
@@ -159,6 +169,19 @@ key = "Key0"
 mods = "Control"
 action = "ResetFontSize"
 
+[[keyboard.bindings]]
+key = "K"
+mods = "Control|Shift"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "J"
+mods = "Control|Shift"
+action = "DecreaseFontSize"
+
 [general]
 live_config_reload = true
 working_directory = "None"
+
+[terminal]
+shell = "/bin/zsh -l"
